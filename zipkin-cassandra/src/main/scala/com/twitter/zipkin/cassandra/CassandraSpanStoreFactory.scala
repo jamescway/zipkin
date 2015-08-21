@@ -16,9 +16,9 @@
 package com.twitter.zipkin.cassandra
 
 import com.datastax.driver.core.Cluster
-import com.datastax.driver.core.policies.LatencyAwarePolicy;
-import com.datastax.driver.core.policies.RoundRobinPolicy;
-import com.datastax.driver.core.policies.TokenAwarePolicy;
+import com.datastax.driver.core.policies.LatencyAwarePolicy
+import com.datastax.driver.core.policies.RoundRobinPolicy
+import com.datastax.driver.core.policies.TokenAwarePolicy
 import com.google.common.net.HostAndPort
 import com.twitter.app.App
 import com.twitter.finagle.stats.{DefaultStatsReceiver, StatsReceiver}

@@ -43,7 +43,10 @@ object CollectorService extends App with CassandraSpanStoreFactory
 CollectorService.nonExitingMain(args.toArray)
 val cluster = CollectorService.createClusterBuilder().build()
 
-val storeBuilder = Store.Builder(new cassandra.SpanStoreBuilder(cluster))
+val storeBuilder = Store.Builder(
+  new cassandra.SpanStoreBuilder(cluster),
+  new cassandra.AggregatesBuilder(cluster)
+)
 
 CollectorServiceBuilder(Scribe.Interface(categories = Set("zipkin")))
   .writeTo(storeBuilder)

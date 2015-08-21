@@ -40,6 +40,9 @@ object QueryService extends App with CassandraSpanStoreFactory
 QueryService.nonExitingMain(args.toArray)
 val cluster = QueryService.createClusterBuilder().build()
 
-val storeBuilder = Store.Builder(new cassandra.SpanStoreBuilder(cluster))
+val storeBuilder = Store.Builder(
+  new cassandra.SpanStoreBuilder(cluster),
+  new cassandra.AggregatesBuilder(cluster)
+)
 
 QueryServiceBuilder(storeBuilder)
